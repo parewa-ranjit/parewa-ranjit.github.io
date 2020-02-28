@@ -1,4 +1,4 @@
-$(document).ready(function() {
+$(document).ready(function () {
   var languagesId = "";
   languagesId += "#python-code textarea" + ",";
   languagesId += "#java-code textarea" + ",";
@@ -11,7 +11,7 @@ $(document).ready(function() {
     javaStr = "",
     pythonStr = "";
 
-  $(languagesId).on("focusout", function() {
+  $(languagesId).on("focusout", function () {
     switch (this.className) {
       case "c-code":
         str = replaceSpace(this.value);
@@ -21,7 +21,6 @@ $(document).ready(function() {
         } else {
           cStr = "";
         }
-
         break;
       case "cpp-code":
         str = replaceSpace(this.value);
@@ -55,15 +54,15 @@ $(document).ready(function() {
     var finalHtml = "";
 
     if (cStr != "" || pythonStr != "" || javaStr != "" || cppStr != "") {
-      finalHtml += '<div class="dsa-examples"><ul>';
+      finalHtml += '<div class="tabbed-editor">';
       if (pythonStr.length !== 0)
-        finalHtml += '<li><a href="#python-code">Python</a></li>';
+        finalHtml += '<div class="tabbed-editor__node"><a href="#python-code">Python</a></div>';
       if (javaStr.length !== 0)
-        finalHtml += '<li><a href="#java-code">Java</a></li>';
-      if (cStr.length !== 0) finalHtml += '<li><a href="#c-code">C</a></li>';
+        finalHtml += '<div class="tabbed-editor__node"><a href="#java-code">Java</a></div>';
+      if (cStr.length !== 0) finalHtml += '<div class="tabbed-editor__node"><a href="#c-code">C</a></div>';
       if (cppStr.length !== 0)
-        finalHtml += '<li><a href="#cpp-code">C+</a></li>';
-      finalHtml += "</ul>";
+        finalHtml += '<div class="tabbed-editor__node"><a href="#cpp-code">C+</a></div>';
+      finalHtml += "</div>";
     }
     // var finalHtml =
     //   '<div class="dsa-examples">' +
@@ -73,6 +72,8 @@ $(document).ready(function() {
     //   '<li><a href="#cpp-code">C++</a></li>' +
     //   '<li><a href="#c-code">C</a></li></ul>';
 
+    finalHtml += '<div class="code-editor code-editor--tabbed">';
+    
     if (pythonStr.length !== 0) finalHtml += pythonStr;
     if (javaStr.length !== 0) finalHtml += javaStr;
     if (cStr.length !== 0) finalHtml += cStr;
@@ -94,7 +95,7 @@ $(document).ready(function() {
     console.log(htmlToShow);
   });
 
-  $("#copy-code").on("click", function(e) {
+  $("#copy-code").on("click", function (e) {
     e.preventDefault();
     var temp = $(".output-area")[0];
     temp.select();
@@ -104,7 +105,7 @@ $(document).ready(function() {
 
 function wrapCodeHtml(str, id) {
   str = '<pre class="exec"><code>' + str + "</code></pre>";
-  str = '<div id="' + id + '">' + str + "</div>";
+  str = '<div class="code-editor__area" id=' + id + '">' + str + "</div>";
 
   return str;
 }
