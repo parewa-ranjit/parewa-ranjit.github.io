@@ -73,7 +73,7 @@ $(document).ready(function () {
     //   '<li><a href="#c-code">C</a></li></ul>';
 
     finalHtml += '<div class="code-editor code-editor--tabbed">';
-    
+
     if (pythonStr.length !== 0) finalHtml += pythonStr;
     if (javaStr.length !== 0) finalHtml += javaStr;
     if (cStr.length !== 0) finalHtml += cStr;
@@ -105,7 +105,7 @@ $(document).ready(function () {
 
 function wrapCodeHtml(str, id) {
   str = '<pre class="exec"><code>' + str + "</code></pre>";
-  str = '<div class="code-editor__area" id=' + id + '">' + str + "</div>";
+  str = '<div class="code-editor__area" id="' + id + '">' + str + "</div>";
 
   return str;
 }
