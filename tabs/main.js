@@ -61,7 +61,7 @@ $(document).ready(function () {
         finalHtml += '<div class="tabbed-editor__node"><a href="#java-code">Java</a></div>';
       if (cStr.length !== 0) finalHtml += '<div class="tabbed-editor__node"><a href="#c-code">C</a></div>';
       if (cppStr.length !== 0)
-        finalHtml += '<div class="tabbed-editor__node"><a href="#cpp-code">C+</a></div>';
+        finalHtml += '<div class="tabbed-editor__node"><a href="#cpp-code">C++</a></div>';
       finalHtml += "</div>";
     }
     // var finalHtml =
